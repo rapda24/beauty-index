@@ -61,7 +61,7 @@ body.modal-open {overflow:hidden;}
 .desk-pick .reason {font-size:11.5px; color:var(--muted);}
 .index-panel {position:sticky; top:96px;}
 
-.ticker {display:flex; align-items:center; gap:18px; width:min(1160px,calc(100% - 48px)); margin:14px auto 0; padding:12px 16px; overflow:hidden; border:1px solid var(--line); border-radius:10px; background:#fff;}
+.ticker {display:flex; align-items:center; gap:18px; width:min(1160px,100%); margin:14px auto 40px; padding:12px 16px; overflow:hidden; border:1px solid var(--line); border-radius:10px; background:#fff;}
 .ticker-title {padding:3px 7px; background:var(--lime); font-family:"DM Sans",sans-serif; font-size:9px; font-weight:700;}
 .ticker-track {display:flex; gap:30px; white-space:nowrap; font-size:11px; color:#555;}
 .section {width:min(1160px,100%); margin:0 auto; padding:82px 24px;}
@@ -241,7 +241,7 @@ body.modal-open {overflow:hidden;}
 .masthead {padding:36px 18px 26px;}
 .reader-bar {padding:14px;}
 .run {margin-left:0; width:100%;}
-.ticker {width:calc(100% - 36px); margin:12px auto 0;}
+.ticker {margin:12px auto 28px;}
 .section {padding:54px 18px;}
 .topic-overview {gap:34px;}
 .metric-grid,.data-grid,.story-grid,.digest-grid,.picks-grid {grid-template-columns:1fr;}
