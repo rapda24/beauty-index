@@ -28,27 +28,64 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 
 revealElements.forEach((element) => revealObserver.observe(element));
 
-document.querySelectorAll('[data-scroll-target]').forEach((button) => {
-  button.addEventListener('click', () => {
-    document.querySelector(button.dataset.scrollTarget)?.scrollIntoView({ behavior: 'smooth' });
+function escHtml(value) {
+  return String(value == null ? '' : value).replace(/[&<>]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+}
+
+const DESK_BRIEFS = {
+  '스킨케어': {
+    kicker: 'SKINCARE', headline: '장벽이 곧 실력이다', subhead: 'Barrier care leads this week',
+    brief: ['각질 관리 피로가 저자극·장벽 케어로의 회귀를 만들고 있습니다. 세라마이드, 판테놀처럼 익숙한 성분이 다시 조명받는 중입니다.', '새로운 성분보다 검증된 진정 성분에 대한 신뢰가 우선하는 흐름이 이어지고 있습니다.'],
+    picks: [{ tag: '스킨 배리어', name: '세라마이드 리페어 크림', reason: '장벽 케어 카테고리 상승세를 이끄는 대표 제형' }, { tag: '저자극 앰플', name: '판테놀 진정 앰플', reason: '환절기 진정 수요와 함께 검색량 급등' }, { tag: '모공 케어', name: '약산성 모공 토너', reason: '모공 타이트닝 검색과 함께 언급 증가' }]
+  },
+  '메이크업': {
+    kicker: 'MAKEUP', headline: '베이스가 곧 스킨케어다', subhead: 'Tone-up base redefines routine',
+    brief: ['자외선 차단과 톤 정돈을 겸한 베이스가 데일리 루틴을 재편하고 있습니다.', '과한 하이라이트보다 은은한 광을 표현하는 제형이 재구매로 이어지는 경향을 보입니다.'],
+    picks: [{ tag: '글로우 베이스', name: '윤광 톤업 선베이스', reason: '윤광 베이스 수요 상승, 자연스러운 광 표현' }, { tag: '쿠션', name: '저자극 톤업 쿠션', reason: '선케어 겸용 쿠션 검색 증가' }, { tag: '립', name: '저자극 틴트', reason: '가벼운 발색 선호 트렌드' }]
+  },
+  '성분·포뮬러': {
+    kicker: 'FORMULA', headline: '레티놀의 대안이 뜬다', subhead: 'Bakuchiol leads formula shift',
+    brief: ['레티놀의 효과는 원하지만 자극감 때문에 망설이던 소비자층이 대안 성분을 적극적으로 검색하고 있습니다.', '비건 포뮬러 역시 급등은 아니지만 꾸준히 순위를 유지하는 카테고리로 관찰됩니다.'],
+    picks: [{ tag: '바쿠치올', name: '바쿠치올 나이트 세럼', reason: '레티놀 대안으로 부상하는 식물 유래 성분' }, { tag: '비건 포뮬러', name: '비건 인증 모이스처라이저', reason: '동물성 원료 배제 제형 관심 증가' }, { tag: '저자극', name: '무향 저자극 크림', reason: '장벽 케어와 함께 언급되는 제형' }]
+  },
+  '글로벌 K-뷰티': {
+    kicker: 'GLOBAL', headline: '해외에서 먼저 반응하는 키워드', subhead: 'What global shoppers search first',
+    brief: ['해외 소비자는 성분 효능과 사용 경험을 함께 확인하는 경향이 뚜렷합니다. 임상 근거와 루틴형 콘텐츠가 구매 전환에 중요한 역할을 합니다.', '한국 스킨케어 특유의 레이어링 루틴 자체가 하나의 콘텐츠로 소비되는 흐름도 계속되고 있습니다.'],
+    picks: [{ tag: 'K-루틴', name: '수분 레이어링 세럼 세트', reason: '해외에서 루틴형 콘텐츠로 자주 언급' }, { tag: '글로벌 인기', name: '저자극 진정 토너', reason: '해외 리뷰에서 반복 언급되는 스테디셀러' }, { tag: '수출 신호', name: '톤업 선케어 베이스', reason: '해외 셀렉트샵 입점 문의 증가' }]
+  }
+};
+
+const chips = document.querySelectorAll('.chip');
+let deskCategory = document.querySelector('.chip.on')?.dataset.cat || Object.keys(DESK_BRIEFS)[0];
+
+chips.forEach((chip) => {
+  chip.addEventListener('click', () => {
+    chips.forEach((c) => c.classList.remove('on'));
+    chip.classList.add('on');
+    deskCategory = chip.dataset.cat;
   });
 });
 
-const sections = [...document.querySelectorAll('main section[id]')];
-const railDots = [...document.querySelectorAll('.rail-dot')];
-const railTargetIds = ['headline', 'market', 'trends', 'routine'];
+const runButton = document.querySelector('#run');
+const deskStage = document.querySelector('#deskStage');
 
-const railObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    const index = railTargetIds.indexOf(entry.target.id);
-    if (index < 0) return;
-    railDots.forEach((dot) => dot.classList.remove('is-active'));
-    railDots[index]?.classList.add('is-active');
+function renderDeskBrief(data) {
+  const picksHtml = data.picks.map((p) => `<div class="desk-pick"><span class="tag">${escHtml(p.tag)}</span><span class="name">${escHtml(p.name)}</span><span class="reason">${escHtml(p.reason)}</span></div>`).join('');
+  const bodyHtml = data.brief.map((paragraph) => `<p>${escHtml(paragraph)}</p>`).join('');
+  return `<div class="desk-art"><span class="desk-kicker">${escHtml(data.kicker)}</span><h3>${escHtml(data.headline)}</h3><div class="desk-subhead">${escHtml(data.subhead)}</div>${bodyHtml}<div class="desk-picks-title">이번 주 트렌드 픽</div><div class="desk-picks">${picksHtml}</div></div>`;
+}
+
+if (runButton && deskStage) {
+  runButton.addEventListener('click', () => {
+    runButton.disabled = true;
+    deskStage.innerHTML = `<div class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span>AI 에디터가 <b>${escHtml(deskCategory)}</b> 트렌드를 정리 중…</div>`;
+    window.setTimeout(() => {
+      const data = DESK_BRIEFS[deskCategory] || DESK_BRIEFS[Object.keys(DESK_BRIEFS)[0]];
+      deskStage.innerHTML = renderDeskBrief(data);
+      runButton.disabled = false;
+    }, 700);
   });
-}, { rootMargin: '-35% 0px -55% 0px' });
-
-sections.filter((section) => railTargetIds.includes(section.id)).forEach((section) => railObserver.observe(section));
+}
 
 const articles = {
   'idx-barrier': { number: '01', kicker: 'INDEX / SKIN BARRIER', title: '스킨 배리어, 이번 주 지수 1위', lead: '주간 지수 94.2, 전주 대비 +6.1 상승 — 장벽 케어가 게시판 최상단으로 다시 올라왔습니다.', stat: '94.2', statLabel: '주간 지수 · WEEK 32', paragraphs: ['검색·판매 신호를 종합한 지수가 94.2를 기록하며 2주 연속 게시판 1위를 지켰습니다. 저자극 진정 성분에 대한 검색이 함께 늘어난 것이 특징입니다.', '과도한 각질 관리와 고자극 시술에 대한 피로감이 회복 지향적인 소비로 옮겨가고 있다는 신호로 해석할 수 있습니다.'], list: ['전주 대비 +6.1 상승', '세라마이드·판테놀 언급 동반 증가', '저자극·진정 카테고리 동반 상승', '2주 연속 지수 상위권 유지'] },
