@@ -87,6 +87,25 @@ if (runButton && deskStage) {
   });
 }
 
+const newsletterForm = document.querySelector('#newsletterForm');
+const newsletterEmail = document.querySelector('#newsletterEmail');
+const newsletterMsg = document.querySelector('#newsletterMsg');
+
+if (newsletterForm && newsletterEmail && newsletterMsg) {
+  newsletterForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const value = (newsletterEmail.value || '').trim();
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    newsletterMsg.classList.toggle('is-error', !isValid);
+    if (!isValid) {
+      newsletterMsg.textContent = '올바른 이메일 주소를 입력해 주세요.';
+      return;
+    }
+    newsletterMsg.textContent = '구독 신청이 접수되었습니다. 감사합니다.';
+    newsletterEmail.value = '';
+  });
+}
+
 const articles = {
   'idx-barrier': { number: '01', kicker: 'INDEX / SKIN BARRIER', title: '스킨 배리어, 이번 주 지수 1위', lead: '주간 지수 94.2, 전주 대비 +6.1 상승 — 장벽 케어가 게시판 최상단으로 다시 올라왔습니다.', stat: '94.2', statLabel: '주간 지수 · WEEK 32', paragraphs: ['검색·판매 신호를 종합한 지수가 94.2를 기록하며 2주 연속 게시판 1위를 지켰습니다. 저자극 진정 성분에 대한 검색이 함께 늘어난 것이 특징입니다.', '과도한 각질 관리와 고자극 시술에 대한 피로감이 회복 지향적인 소비로 옮겨가고 있다는 신호로 해석할 수 있습니다.'], list: ['전주 대비 +6.1 상승', '세라마이드·판테놀 언급 동반 증가', '저자극·진정 카테고리 동반 상승', '2주 연속 지수 상위권 유지'] },
   'idx-tonesun': { number: '02', kicker: 'INDEX / SUNCARE', title: '톤업 선케어, 지수 88.7로 2위', lead: '전주 대비 +4.3 상승 — 자외선 차단과 톤 보정을 동시에 원하는 수요가 순위를 끌어올렸습니다.', stat: '88.7', statLabel: '주간 지수 · WEEK 32', paragraphs: ['자외선 차단제 단독 사용보다 톤 정돈 기능을 겸한 베이스형 선케어 검색이 늘고 있습니다. 데일리 루틴을 한 단계 줄이려는 소비 흐름과 맞닿아 있습니다.', '메이크업 베이스와 선케어의 경계가 흐려지면서 겸용 제품에 대한 재구매 신호도 함께 관찰됩니다.'], list: ['전주 대비 +4.3 상승', '겸용(선케어+톤업) 검색 증가', '데일리 루틴 단순화 수요', '재구매 신호 동반'] },
