@@ -101,7 +101,8 @@ h3 {font-size:clamp(1.125em,2vw,1.375em); line-height:1.3; letter-spacing:-.02em
 .pick-card>span {display:block; font-family:"DM Sans",sans-serif; font-size:0.5625em; letter-spacing:.08em; color:var(--muted); text-transform:uppercase;}
 .pick-card h3 {margin:1em 0 0.5em; font-size:1em; line-height:1.3;}
 .pick-card small {display:block; margin-top:auto; font-size:0.6875em; color:var(--muted);}
-.data-section,.story-section,.digest-section,.picks-section,.topic-overview {border-top:1px solid #ecece7;}
+.data-section,.story-section,.digest-section,.picks-section,.topic-overview {position:relative;}
+.data-section::before,.story-section::before,.digest-section::before,.picks-section::before,.topic-overview::before {content:""; position:absolute; top:0; left:1.5em; width:2.5em; height:0.25em; background:var(--lime);}
 .section-heading {display:flex; justify-content:space-between; align-items:end; gap:1.875em; margin-bottom:2em;}
 .section-heading p {max-width:27.5em; margin:0; font-size:0.8125em; color:var(--muted);}
 .section-heading em {font-style:normal; color:var(--ink);}
@@ -230,6 +231,7 @@ h3 {font-size:clamp(1.125em,2vw,1.375em); line-height:1.3; letter-spacing:-.02em
 .reveal.is-visible {opacity:1; transform:none;}
 .sr-only {position:absolute; width:0.0625em; height:0.0625em; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;}
 @media (max-width:900px) {
+.data-section::before,.story-section::before,.digest-section::before,.picks-section::before,.topic-overview::before {left:2.6667vw;}
 .header-inner {grid-template-columns:1fr auto auto;}
 .menu-toggle {display:flex; width:4vw; height:4vw; flex-direction:column; justify-content:center; gap:0.4444vw; cursor:pointer;}
 .menu-toggle span {width:2vw; height:0.1111vw; display:block; background:var(--ink);}
@@ -247,6 +249,7 @@ h3 {font-size:clamp(1.125em,2vw,1.375em); line-height:1.3; letter-spacing:-.02em
 .article-link {position:static; display:block; margin-top:2.6667vw;}
 }
 @media (max-width:640px) {
+.data-section::before,.story-section::before,.digest-section::before,.picks-section::before,.topic-overview::before {left:2.8125vw;}
 .header-inner {padding-top:2.1875vw; padding-bottom:2.1875vw;}
 .header-cta {display:none;}
 .masthead {padding:5.625vw 2.8125vw 4.0625vw;}
