@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="K-뷰티 트렌드 지수를 게시판형으로 읽는 데이터 저널">
+  <title>BEAUTY INDEX — K-Beauty Data Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="ambient ambient-top"></div>
+  <div class="ambient ambient-bottom"></div>
+
+  <div class="page-stage">
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="BEAUTY INDEX 홈">
+          <span class="brand-mark">✦</span>
+          <span>BEAUTY INDEX</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" aria-label="주요 메뉴">
+          <a href="#headline">Cover</a>
+          <a href="#board">Board</a>
+          <a href="#trends">Trend</a>
+          <a href="#routine">Routine</a>
+          <a href="#picks">Picks</a>
+          <a href="#about">About</a>
+        </nav>
+
+        <div class="header-tools">
+          <button class="icon-button" type="button" aria-label="검색">⌕</button>
+          <a class="header-cta" href="#board">Weekly Board ↗</a>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero" id="headline">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span>ISSUE 26.08</span> K-BEAUTY TREND INTELLIGENCE</p>
+            <h1>지금 뜨는 뷰티를,<br><em>지수로 읽다.</em></h1>
+            <p class="hero-description">검색·판매 신호로 계산한 주간 트렌드 지수를 게시판처럼 한눈에 정리했습니다. 오늘의 랭킹부터 이번 호 트렌드, 루틴과 에디터스 픽까지 순서대로 읽어보세요.</p>
+            <div class="hero-actions">
+              <a class="button button-dark" href="#board">게시판 보기</a>
+              <button class="round-action" type="button" aria-label="다음 콘텐츠" data-scroll-target="#board">↓</button>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="visual-frame index-cover">
+              <span class="visual-caption">THE INDEX · WEEKLY BOARD</span>
+              <ol class="board-preview">
+                <li class="is-rising"><em>01</em><b>스킨 배리어</b><span>94.2</span><i class="up">▲ +6.1</i></li>
+                <li class="is-rising"><em>02</em><b>톤업 선케어</b><span>88.7</span><i class="up">▲ +4.3</i></li>
+                <li class="is-rising"><em>03</em><b>바쿠치올</b><span>81.5</span><i class="up">▲ +7.8</i></li>
+                <li><em>04</em><b>비건 포뮬러</b><span>79.0</span><i class="up">▲ +2.2</i></li>
+              </ol>
+              <div class="visual-chip">WEEK<br><strong>32</strong></div>
+            </div>
+          </div>
+
+          <div class="hero-bottom reveal">
+            <span class="copyright">© BEAUTY INDEX 2026</span>
+            <div class="featured-strip">
+              <span class="featured-label">SIGNALS</span>
+              <button class="featured-item article-trigger" type="button" data-article="idx-barrier"><strong>01</strong><span>스킨 배리어 지수 94.2</span></button>
+              <button class="featured-item article-trigger" type="button" data-article="idx-bakuchiol"><strong>02</strong><span>바쿠치올 +7.8 급등</span></button>
+              <div class="featured-controls"><button type="button">←</button><button type="button">→</button></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="ticker" aria-label="실시간 뷰티 키워드">
+          <span class="ticker-title">LIVE</span>
+          <div class="ticker-track">
+            <span>스킨 배리어 ▲ +6.1</span><span>톤업 선케어 ▲ +4.3</span><span>바쿠치올 ▲ +7.8</span><span>비건 포뮬러 ▲ +2.2</span><span>모공 타이트닝 ▲ +1.4</span><span>글라스 스킨 ▼ −3.5</span>
+          </div>
+        </section>
+
+        <section class="section topic-overview" id="board">
+          <div class="overview-intro reveal">
+            <div class="section-number">02</div>
+            <div>
+              <span class="mini-label">THE INDEX</span>
+              <h2>뜨는 키워드,<br>게시판에 담다</h2>
+            </div>
+          </div>
+
+          <div class="overview-content reveal">
+            <p class="overview-lead">검색·판매 데이터로 계산한 주간 트렌드 지수입니다. 순위, 지수, 전주 대비 변화를 게시판 형태로 확인하고 클릭해 관전 포인트를 읽어보세요.</p>
+            <div class="index-board">
+              <div class="index-board-head"><span>RANK</span><span>KEYWORD</span><span>SCORE</span><span>전주 대비</span></div>
+              <button class="index-row article-trigger is-rising" type="button" data-article="idx-barrier"><span class="rk">01</span><span class="kw">스킨 배리어</span><span class="sc">94.2</span><span class="ch up">▲ +6.1</span></button>
+              <button class="index-row article-trigger is-rising" type="button" data-article="idx-tonesun"><span class="rk">02</span><span class="kw">톤업 선케어</span><span class="sc">88.7</span><span class="ch up">▲ +4.3</span></button>
+              <button class="index-row article-trigger is-rising" type="button" data-article="idx-bakuchiol"><span class="rk">03</span><span class="kw">바쿠치올</span><span class="sc">81.5</span><span class="ch up">▲ +7.8</span></button>
+              <button class="index-row article-trigger" type="button" data-article="idx-vegan"><span class="rk">04</span><span class="kw">비건 포뮬러</span><span class="sc">79.0</span><span class="ch up">▲ +2.2</span></button>
+              <button class="index-row article-trigger" type="button" data-article="idx-pore"><span class="rk">05</span><span class="kw">모공 타이트닝</span><span class="sc">74.6</span><span class="ch up">▲ +1.4</span></button>
+              <button class="index-row article-trigger" type="button" data-article="idx-glass"><span class="rk">06</span><span class="kw">글라스 스킨</span><span class="sc">68.3</span><span class="ch down">▼ −3.5</span></button>
+            </div>
+            <p class="chart-note">▲ 상승 · ▼ 하락 — 검색·판매 데이터 기반 주간 지수 · 매주 갱신</p>
+          </div>
+        </section>
+
+        <section class="section story-section" id="trends">
+          <div class="section-heading reveal">
+            <div><span class="highlight-label">Trend Radar</span><h2>이번 호 트렌드</h2></div>
+            <p>게시판 상위권에 오른 키워드를 에디터 노트 형식으로 풀어 설명합니다. 순위 뒤에 있는 맥락을 함께 읽어보세요.</p>
+          </div>
+
+          <div class="story-grid">
+            <article class="story-card story-card-feature reveal article-trigger" data-article="story-barrier" tabindex="0" role="button">
+              <div class="story-meta"><span>SKIN BARRIER</span><time datetime="2026-08-04">WEEK 32</time></div>
+              <h3>'피부 장벽'이<br>다시 왕좌에<br>오른 이유</h3>
+              <p>과한 각질 관리와 고자극 시술의 피로가 저자극·장벽 케어로의 회귀를 만들고 있습니다. 이번 주 지수 1위 키워드입니다.</p>
+              <span class="article-link">ARTICLE 01 <b>↗</b></span>
+              <div class="editorial-figure figure-face"><span>SKIN</span><i></i><i></i><i></i></div>
+            </article>
+
+            <article class="story-card story-card-compact story-card-dark reveal article-trigger" data-article="story-tonesun" tabindex="0" role="button">
+              <div class="story-meta"><span>SUNCARE</span><time datetime="2026-08-04">INDEX 88.7</time></div>
+              <h3>선케어의 다음 문법, 톤업</h3>
+              <span class="article-link">READ <b>↗</b></span>
+              <div class="bottle-art"><i></i><i></i><i></i></div>
+            </article>
+
+            <article class="story-card story-card-compact reveal article-trigger" data-article="story-bakuchiol" tabindex="0" role="button">
+              <div class="story-meta"><span>FORMULA</span><time datetime="2026-08-03">+7.8</time></div>
+              <h3>레티놀의 대안, 바쿠치올의 부상</h3>
+              <span class="article-link">READ <b>↗</b></span>
+              <div class="device-art"><i></i><span>PLANT<br>DERIVED</span></div>
+            </article>
+
+            <article class="story-card story-card-wide reveal article-trigger" data-article="story-formula" tabindex="0" role="button">
+              <div class="story-index">04</div>
+              <div class="story-wide-copy"><span class="mini-label">CATEGORY / FORMULA & PORE</span><h3>비건 포뮬러와 모공 케어,<br>조용히 오르는 두 키워드</h3><p>1위권만큼 눈에 띄진 않지만, 게시판 하단에서 꾸준히 순위를 올리는 두 카테고리를 짚어봅니다.</p></div>
+              <div class="capsule-art"><i></i><i></i><i></i><i></i></div>
+              <span class="article-link">FULL STORY ↗</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="community-banner reveal" id="routine">
+          <div class="community-copy">
+            <span class="mini-label">WEEKLY ROUTINE / 3 STEPS</span>
+            <h2>트렌드를<br>루틴으로 번역하다.</h2>
+            <p>이번 주 게시판 상위 키워드인 장벽 진정, 수분 채움, 톤업 마무리를 아침저녁 3단계로 옮겼습니다.</p>
+            <button class="button button-light article-trigger" type="button" data-article="routine">이주의 루틴 보기</button>
+          </div>
+          <div class="routine-steps">
+            <div><span>STEP 1 · 세안 후</span><strong>장벽 진정</strong><p>자극을 덜고 결을 다독이는 저자극 토너로 시작합니다.</p></div>
+            <div><span>STEP 2 · 케어</span><strong>수분·장벽</strong><p>세라마이드·판테놀로 장벽을 채우는 상승 트렌드입니다.</p></div>
+            <div><span>STEP 3 · 베이스</span><strong>톤업 마무리</strong><p>자외선 차단과 톤 정돈을 겸한 데일리 베이스로 완성합니다.</p></div>
+          </div>
+        </section>
+
+        <section class="section picks-section" id="picks">
+          <div class="section-heading reveal">
+            <div><span class="highlight-label">Editor's Picks</span><h2>에디터스 픽</h2></div>
+            <p>트렌드 지수 상위 키워드를 기준으로 큐레이션했습니다. 광고가 아닌 게시판 랭킹 안에서 골랐습니다.</p>
+          </div>
+          <div class="picks-grid reveal">
+            <button class="pick-card article-trigger" type="button" data-article="pick-ceramide"><span>스킨 배리어</span><strong>세라마이드 리페어 크림</strong><small>장벽 케어 카테고리 상승세를 이끄는 대표 제형</small></button>
+            <button class="pick-card article-trigger" type="button" data-article="pick-panthenol"><span>저자극 앰플</span><strong>판테놀 진정 앰플</strong><small>환절기 진정 수요와 함께 검색량 급등</small></button>
+            <button class="pick-card article-trigger" type="button" data-article="pick-bakuchiol"><span>바쿠치올</span><strong>바쿠치올 나이트 세럼</strong><small>레티놀 대안으로 부상하는 식물 유래 성분</small></button>
+            <button class="pick-card article-trigger" type="button" data-article="pick-glowbase"><span>글로우 베이스</span><strong>윤광 톤업 선베이스</strong><small>윤광 베이스 수요 상승, 자연스러운 광 표현</small></button>
+          </div>
+        </section>
+
+        <section class="section digest-section" id="about">
+          <div class="section-heading reveal">
+            <div><span class="highlight-label">Editor's Desk</span><h2>데이터를 읽는 방법</h2></div>
+            <p>뷰티 인덱스는 게시판 순위를 단순 나열하지 않고, 제품 기획과 소비 변화의 맥락으로 연결합니다.</p>
+          </div>
+          <div class="digest-grid reveal">
+            <button class="digest-item article-trigger" type="button" data-article="market-guide"><span>01</span><strong>진입 시장 판단</strong><p>어느 국가와 카테고리가 성장 중인지 수치로 확인합니다.</p><em>READ ↗</em></button>
+            <button class="digest-item article-trigger" type="button" data-article="product-guide"><span>02</span><strong>제품·성분 방향</strong><p>상승하는 성분과 제형을 감지해 제품 방향을 좁힙니다.</p><em>READ ↗</em></button>
+            <button class="digest-item article-trigger" type="button" data-article="data-guide"><span>03</span><strong>데이터 인테그리티</strong><p>공개 통계와 검색·판매 신호를 정기적으로 갱신합니다.</p><em>READ ↗</em></button>
+          </div>
+        </section>
+
+        <section class="section topic-overview" id="market">
+          <div class="overview-intro reveal">
+            <div class="section-number">06</div>
+            <div>
+              <span class="mini-label">MARKET DATA · APPENDIX</span>
+              <h2>수치로 보는<br>수출 시장</h2>
+            </div>
+          </div>
+
+          <div class="overview-content reveal">
+            <p class="overview-lead">게시판 트렌드의 배경이 되는 2026년 상반기 K-뷰티 수출·점유율 지표입니다. 자세한 수치와 그래프는 아래에서 확인하세요.</p>
+            <div class="metric-grid">
+              <button class="metric-card article-trigger" type="button" data-article="export"><span>01 / EXPORT</span><strong>$70.0B</strong><small>상반기 수출 지수 · +27.3% YoY</small></button>
+              <button class="metric-card article-trigger" type="button" data-article="balance"><span>02 / BALANCE</span><strong>$101억</strong><small>무역수지 흑자 · 사상 첫 $100억 돌파</small></button>
+              <button class="metric-card article-trigger" type="button" data-article="quarter"><span>03 / QUARTER</span><strong>$39억</strong><small>2분기 수출 · +25.8%</small></button>
+              <button class="metric-card article-trigger" type="button" data-article="japan"><span>04 / JAPAN</span><strong>8.3%</strong><small>수출국 점유율 · 3위 유지</small></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section data-section">
+          <div class="section-heading reveal">
+            <div><span class="highlight-label">The Index</span><h2>수출 지형 재편</h2></div>
+            <p>중국 의존도가 낮아지고 미국·일본을 포함한 시장 다변화가 빠르게 진행되는 흐름을 비교합니다.</p>
+          </div>
+
+          <div class="data-grid reveal">
+            <article class="chart-panel">
+              <div class="panel-head"><span>01</span><div><strong>5년 수출 추이</strong><small>상반기 기준 · INDEX</small></div><b>+73%</b></div>
+              <div class="bar-chart" aria-label="5년 수출 추이 막대그래프">
+                <div class="bar-column"><i style="--value:58%"></i><span>40.5</span><small>2022</small></div>
+                <div class="bar-column"><i style="--value:63%"></i><span>44.1</span><small>2023</small></div>
+                <div class="bar-column"><i style="--value:71%"></i><span>49.8</span><small>2024</small></div>
+                <div class="bar-column"><i style="--value:79%"></i><span>55.0</span><small>2025</small></div>
+                <div class="bar-column is-current"><i style="--value:100%"></i><span>70.0</span><small>2026</small></div>
+              </div>
+              <button class="text-link article-trigger" type="button" data-article="export">데이터 해설 읽기 ↗</button>
+            </article>
+
+            <article class="chart-panel chart-panel-dark">
+              <div class="panel-head"><span>02</span><div><strong>수출국 점유율</strong><small>2026 상반기</small></div><b>$70B</b></div>
+              <div class="donut-wrap">
+                <div class="donut" role="img" aria-label="미국 20.7%, 중국 14.4%, 일본 8.3%, 기타 56.6%"></div>
+                <div class="donut-center"><strong>43.4%</strong><span>TOP 3</span></div>
+              </div>
+              <ul class="legend-list">
+                <li><span class="legend-dot dot-1"></span><b>미국</b><em>20.7%</em></li>
+                <li><span class="legend-dot dot-2"></span><b>중국</b><em>14.4%</em></li>
+                <li><span class="legend-dot dot-3"></span><b>일본</b><em>8.3%</em></li>
+                <li><span class="legend-dot dot-4"></span><b>기타</b><em>56.6%</em></li>
+              </ul>
+            </article>
+
+            <article class="chart-panel chart-panel-wide">
+              <div class="panel-head"><span>03</span><div><strong>미국 ↑ vs 중국 ↓</strong><small>수출 시장의 중심축 이동</small></div><b>46.5 → 14.4</b></div>
+              <div class="compare-rows">
+                <button class="compare-row article-trigger" type="button" data-article="usa"><span>UNITED STATES</span><div><i style="--value:82%"></i></div><strong>+41.5%</strong></button>
+                <button class="compare-row article-trigger" type="button" data-article="china"><span>CHINA</span><div><i class="is-down" style="--value:38%"></i></div><strong>−6.6%</strong></button>
+              </div>
+              <p class="chart-note">중국 의존도는 과거 46.5%에서 14.4%로 낮아졌고, 미국 시장은 가장 강한 상승 신호를 보이고 있습니다.</p>
+            </article>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand"><span class="brand-mark">✦</span><strong>BEAUTY INDEX</strong></div>
+        <p>지금 뜨는 뷰티를, 지수로 읽다.</p>
+        <div class="footer-links"><a href="#board">Board</a><a href="#trends">Trend</a><a href="#routine">Routine</a><a href="#picks">Picks</a><a href="#about">About</a><a href="#market">Data</a></div>
+        <small>본 페이지의 수치는 제공된 레퍼런스 사이트의 콘텐츠를 편집해 구성한 데모입니다.</small>
+      </footer>
+    </div>
+  </div>
+
+  <div class="article-modal" id="articleModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <article class="modal-paper">
+      <button class="modal-close" type="button" aria-label="팝업 닫기" data-close-modal>×</button>
+      <header class="modal-header"><span class="modal-kicker" id="modalKicker"></span><span class="modal-issue">BEAUTY INDEX / 2026</span></header>
+      <div class="modal-content">
+        <div class="modal-title-block"><span class="modal-number" id="modalNumber"></span><h2 id="modalTitle"></h2><p id="modalLead"></p></div>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+      <footer class="modal-footer"><span>DATA JOURNAL</span><button type="button" data-close-modal>기사 닫기 ↑</button></footer>
+    </article>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
