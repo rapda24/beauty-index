@@ -63,7 +63,7 @@ h3 {font-size:clamp(1.125em,2vw,1.375em); line-height:1.3; letter-spacing:-.02em
 .desk-pick .reason {font-size:0.7188em; color:var(--muted);}
 .index-panel {position:sticky; top:96px;}
 
-.ticker {display:flex; align-items:stretch; width:100%; margin:32px 0 40px; background:var(--ink); color:#cfcfc9;}
+.ticker {display:flex; align-items:stretch; width:min(1160px,100%); margin:32px auto 40px; overflow:hidden; border-radius:10px; background:var(--ink); color:#cfcfc9;}
 .ticker-title {display:flex; align-items:center; flex-shrink:0; padding:0 18px; background:var(--lime); color:var(--ink); font-family:"DM Sans",sans-serif; font-size:0.5625em; font-weight:700; letter-spacing:.06em;}
 .ticker-viewport {flex:1; display:flex; overflow:hidden;}
 .ticker-track {display:flex; flex-shrink:0; align-items:center; gap:36px; padding:12px 28px; white-space:nowrap; font-size:0.6875em; animation:ticker-scroll 24s linear infinite;}
