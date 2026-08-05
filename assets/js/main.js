@@ -70,7 +70,7 @@ const runButton = document.querySelector('#run');
 const deskStage = document.querySelector('#deskStage');
 
 function renderDeskBrief(data) {
-  const picksHtml = data.picks.map((p) => `<div class="desk-pick"><span class="tag">${escHtml(p.tag)}</span><span class="name">${escHtml(p.name)}</span><span class="reason">${escHtml(p.reason)}</span></div>`).join('');
+  const picksHtml = data.picks.map((p) => `<div class="desk-pick"><span class="tag">${escHtml(p.tag)}</span><h3 class="name">${escHtml(p.name)}</h3><span class="reason">${escHtml(p.reason)}</span></div>`).join('');
   const bodyHtml = data.brief.map((paragraph) => `<p>${escHtml(paragraph)}</p>`).join('');
   return `<div class="desk-art"><span class="desk-kicker">${escHtml(data.kicker)}</span><h3>${escHtml(data.headline)}</h3><div class="desk-subhead">${escHtml(data.subhead)}</div>${bodyHtml}<div class="desk-picks-title">이번 주 트렌드 픽</div><div class="desk-picks">${picksHtml}</div></div>`;
 }
