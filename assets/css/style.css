@@ -84,9 +84,9 @@ h4 {font-size:clamp(1.53em,2.9089vw,1.9833em); line-height:1.3; letter-spacing:-
 .metric-card small {font-size:1.0694em; color:#81817b;}
 .metric-card:nth-child(2) small,.metric-card:nth-child(3) small {color:#c9c9c4;}
 .index-board {border:1px solid var(--ink); border-radius:1em; overflow:hidden; background:#fff;}
-.index-board-head {display:grid; grid-template-columns:3.375em 1fr 5em 6.25em; gap:0.875em; padding:0.8125em 1.375em; background:#f7f7f2; font-family:"DM Sans",sans-serif; font-size:0.75em; letter-spacing:.08em; color:#999;}
+.index-board-head {display:grid; grid-template-columns:3.375em auto 5em 5em; gap:0.875em; padding:0.8125em 1.375em; background:#f7f7f2; font-family:"DM Sans",sans-serif; font-size:0.75em; letter-spacing:.08em; color:#999;}
 .index-board-head span,.index-row.is-rising span {width:100%;}
-.index-row {display:grid; grid-template-columns:3.375em 1fr 5em 6.25em; align-items:center; gap:0.875em; width:100%; padding:1em 1.375em; border:0; border-top:1px solid var(--line); background:#fff; text-align:left; cursor:pointer; transition:.15s;}
+.index-row {display:grid; grid-template-columns:3.375em auto 5em 5em; align-items:center; gap:0.875em; width:100%; padding:1em 1.375em; border:0; border-top:1px solid var(--line); background:#fff; text-align:left; cursor:pointer; transition:.15s;}
 .index-row:hover {background:#f9f9f4;}
 .index-row.is-rising {background:#fbfdf2;}
 .index-row .rk {font-family:"DM Sans",sans-serif; font-size:0.875em; color:#b8b8b2;}
