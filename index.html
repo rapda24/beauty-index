@@ -18,11 +18,11 @@
         <span>BEAUTY INDEX</span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav">
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="main-nav" aria-label="주요 메뉴">
+      <nav class="main-nav" id="mainNav" aria-label="주요 메뉴">
         <a href="#board">Board</a>
         <a href="#trends">Trend</a>
         <a href="#routine">Routine</a>
@@ -176,98 +176,33 @@
         <p>뷰티 인덱스는 게시판 순위를 단순 나열하지 않고, 제품 기획과 소비 변화의 맥락으로 연결합니다.</p>
       </div>
       <div class="digest-grid reveal">
-        <article class="digest-item article-trigger" data-article="market-guide" tabindex="0" role="button"><span>01</span><h4>진입 시장 판단</h4><p>어느 국가와 카테고리가 성장 중인지 수치로 확인합니다.</p><em>READ ↗</em></article>
-        <article class="digest-item article-trigger" data-article="product-guide" tabindex="0" role="button"><span>02</span><h4>제품·성분 방향</h4><p>상승하는 성분과 제형을 감지해 제품 방향을 좁힙니다.</p><em>READ ↗</em></article>
-        <article class="digest-item article-trigger" data-article="data-guide" tabindex="0" role="button"><span>03</span><h4>데이터 인테그리티</h4><p>공개 통계와 검색·판매 신호를 정기적으로 갱신합니다.</p><em>READ ↗</em></article>
+        <article class="digest-item article-trigger" data-article="market-guide" tabindex="0" role="button"><span>01 / MARKET</span><h4>진입 시장을 고르는 데이터 읽기</h4><p>성장률·점유율·채널 구조를 함께 보고 시장 우선순위를 정하는 기준입니다.</p><em>READ ↗</em></article>
+        <article class="digest-item article-trigger" data-article="product-guide" tabindex="0" role="button"><span>02 / PRODUCT</span><h4>트렌드에서 제품 방향을 좁히는 법</h4><p>성분, 제형, 루틴의 세 층으로 키워드를 분해해 제품 콘셉트를 구체화합니다.</p><em>READ ↗</em></article>
+        <article class="digest-item article-trigger" data-article="data-guide" tabindex="0" role="button"><span>03 / DATA</span><h4>데이터 인테그리티와 편집 원칙</h4><p>공개 통계와 트렌드 신호의 차이를 분리해 수치와 해석의 경계를 명확히 합니다.</p><em>READ ↗</em></article>
       </div>
     </section>
-
-    <section class="section topic-overview" id="market">
-      <div class="overview-intro reveal">
-        <div class="section-number">06</div>
-        <div>
-          <span class="mini-label">MARKET DATA · APPENDIX</span>
-          <h3>수치로 보는<br>수출 시장</h3>
-        </div>
-      </div>
-
-      <div class="overview-content reveal">
-        <p class="overview-lead">게시판 트렌드의 배경이 되는 2026년 상반기 K-뷰티 수출·점유율 지표입니다. 자세한 수치와 그래프는 아래에서 확인하세요.</p>
-        <div class="metric-grid">
-          <button class="metric-card article-trigger" type="button" data-article="export"><span>01 / EXPORT</span><strong>$70.0B</strong><small>상반기 수출 지수 · +27.3% YoY</small></button>
-          <button class="metric-card article-trigger" type="button" data-article="balance"><span>02 / BALANCE</span><strong>$101억</strong><small>무역수지 흑자 · 사상 첫 $100억 돌파</small></button>
-          <button class="metric-card article-trigger" type="button" data-article="quarter"><span>03 / QUARTER</span><strong>$39억</strong><small>2분기 수출 · +25.8%</small></button>
-          <button class="metric-card article-trigger" type="button" data-article="japan"><span>04 / JAPAN</span><strong>8.3%</strong><small>수출국 점유율 · 3위 유지</small></button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section data-section">
-      <div class="section-heading reveal">
-        <div><span class="highlight-label">The Index</span><h3>수출 지형 재편</h3></div>
-        <p>중국 의존도가 낮아지고 미국·일본을 포함한 시장 다변화가 빠르게 진행되는 흐름을 비교합니다.</p>
-      </div>
-
-      <div class="data-grid reveal">
-        <article class="chart-panel">
-          <div class="panel-head"><span>01</span><div><h4>5년 수출 추이</h4><small>상반기 기준 · INDEX</small></div><b>+73%</b></div>
-          <div class="bar-chart" aria-label="5년 수출 추이 막대그래프">
-            <div class="bar-column"><i style="--value:58%"></i><span>40.5</span><small>2022</small></div>
-            <div class="bar-column"><i style="--value:63%"></i><span>44.1</span><small>2023</small></div>
-            <div class="bar-column"><i style="--value:71%"></i><span>49.8</span><small>2024</small></div>
-            <div class="bar-column"><i style="--value:79%"></i><span>55.0</span><small>2025</small></div>
-            <div class="bar-column is-current"><i style="--value:100%"></i><span>70.0</span><small>2026</small></div>
-          </div>
-          <button class="text-link article-trigger" type="button" data-article="export">데이터 해설 읽기 ↗</button>
-        </article>
-
-        <article class="chart-panel chart-panel-dark">
-          <div class="panel-head"><span>02</span><div><h4>수출국 점유율</h4><small>2026 상반기</small></div><b>$70B</b></div>
-          <div class="donut-wrap">
-            <div class="donut" role="img" aria-label="미국 20.7%, 중국 14.4%, 일본 8.3%, 기타 56.6%"></div>
-            <div class="donut-center"><strong>43.4%</strong><span>TOP 3</span></div>
-          </div>
-          <ul class="legend-list">
-            <li><span class="legend-dot dot-1"></span><b>미국</b><em>20.7%</em></li>
-            <li><span class="legend-dot dot-2"></span><b>중국</b><em>14.4%</em></li>
-            <li><span class="legend-dot dot-3"></span><b>일본</b><em>8.3%</em></li>
-            <li><span class="legend-dot dot-4"></span><b>기타</b><em>56.6%</em></li>
-          </ul>
-        </article>
-
-        <article class="chart-panel chart-panel-wide">
-          <div class="panel-head"><span>03</span><div><h4>미국 ↑ vs 중국 ↓</h4><small>수출 시장의 중심축 이동</small></div><b>46.5 → 14.4</b></div>
-          <div class="compare-rows">
-            <button class="compare-row article-trigger" type="button" data-article="usa"><span>UNITED STATES</span><div><i style="--value:82%"></i></div><strong>+41.5%</strong></button>
-            <button class="compare-row article-trigger" type="button" data-article="china"><span>CHINA</span><div><i class="is-down" style="--value:38%"></i></div><strong>−6.6%</strong></button>
-          </div>
-          <p class="chart-note">중국 의존도는 과거 46.5%에서 14.4%로 낮아졌고, 미국 시장은 가장 강한 상승 신호를 보이고 있습니다.</p>
-        </article>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <div class="footer-brand"><span class="brand-mark">✦</span><strong>BEAUTY INDEX</strong></div>
-      <p>지금 뜨는 뷰티를, 지수로 읽다.</p>
-      <div class="footer-links"><a href="#board">Board</a><a href="#trends">Trend</a><a href="#routine">Routine</a><a href="#picks">Picks</a><a href="#about">About</a><a href="#newsletter">Newsletter</a><a href="#market">Data</a></div>
-      <small>본 페이지의 수치는 제공된 레퍼런스 사이트의 콘텐츠를 편집해 구성한 데모입니다.</small>
+      <a class="footer-brand" href="#top"><span>✦</span><strong>BEAUTY INDEX</strong></a>
+      <p>K-뷰티의 흐름을 데이터와 에디토리얼로 읽습니다.</p>
+      <div class="footer-links"><a href="#board">Board</a><a href="#trends">Trend</a><a href="#newsletter">Newsletter</a></div>
+      <small>© 2026 BEAUTY INDEX. ALL RIGHTS RESERVED.</small>
     </div>
   </footer>
 
-  <div class="article-modal" id="articleModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="article-modal" id="articleModal" aria-hidden="true">
     <div class="modal-backdrop" data-close-modal></div>
-    <div class="modal-shell">
-      <button class="modal-close" type="button" aria-label="팝업 닫기" data-close-modal>×</button>
+    <div class="modal-shell" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="닫기">✕</button>
       <article class="modal-paper">
-        <header class="modal-header"><span class="modal-kicker" id="modalKicker"></span><span class="modal-issue">BEAUTY INDEX / 2026</span></header>
+        <header class="modal-header"><span class="modal-kicker" id="modalKicker"></span><span>BEAUTY INDEX / <b id="modalNumber"></b></span></header>
         <div class="modal-content">
-          <div class="modal-title-block"><span class="modal-number" id="modalNumber"></span><h3 id="modalTitle"></h3><p id="modalLead"></p></div>
+          <div class="modal-title-block"><span class="modal-number">FEATURE ARTICLE</span><h2 id="modalTitle"></h2><p id="modalLead"></p></div>
           <div class="modal-body" id="modalBody"></div>
         </div>
-        <footer class="modal-footer"><span>DATA JOURNAL</span><button type="button" data-close-modal>기사 닫기 ↑</button></footer>
+        <footer class="modal-footer"><span>BEAUTY INDEX · WEEK 32</span><button type="button" data-close-modal>닫기</button></footer>
       </article>
     </div>
   </div>
