@@ -7,7 +7,7 @@ a {color:inherit; text-decoration:none;}
 button {color:inherit;}
 body.modal-open {overflow:hidden;}
 h2,h3,h4 {margin:0;}
-h2 {font-size:clamp(2.2166em,6.5333vw,4.2em); line-height:1.08; letter-spacing:-.05em;}
+h2 {font-size:clamp(2.4383em,7.1866vw,4.62em); line-height:1.08; letter-spacing:-.05em;}
 h3 {font-size:clamp(1.6198em,3.1469vw,2.5452em); line-height:1.32; letter-spacing:-.04em;}
 h4 {font-size:clamp(1.53em,2.9089vw,1.9833em); line-height:1.3; letter-spacing:-.02em;}
 .wrap {width:min(72.5em,100%); margin:0 auto; padding:0 1.5em;}
