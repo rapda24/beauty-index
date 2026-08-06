@@ -113,7 +113,7 @@ h4 {font-size:clamp(1.53em,2.9089vw,1.9833em); line-height:1.3; letter-spacing:-
 .panel-head h4 {font-size:1.6528em;}
 .panel-head small {display:block; margin-top:0.1875em; font-size:0.9722em; color:#888;}
 .panel-head b {font-family:"DM Sans",sans-serif; font-size:1.1667em; color:#777;}
-.bar-chart {height:14.375em; display:flex; align-items:end; justify-content:space-between; gap:0.75em; margin:1.875em 0 1.25em; padding-top:1.375em; border-bottom:1px solid var(--line);}
+.bar-chart {height:14.375em; display:flex; align-items:end; justify-content:space-between; gap:0.75em; margin:1.875em 0 1.25em; padding:1.375em 0; border-bottom:1px solid var(--line);}
 .bar-column {flex:1; height:100%; display:flex; flex-direction:column; justify-content:end; align-items:center; gap:0.375em;}
 .bar-column i {width:70%; height:var(--value); min-height:1.25em; display:block; border-radius:0.5em 0.5em 0 0; background:#deded8;}
 .bar-column.is-current i {background:var(--accent);}
