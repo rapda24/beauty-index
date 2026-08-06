@@ -154,7 +154,7 @@ function openArticle(articleId) {
     </div>
     <aside>
       <div class="modal-stat"><strong>${article.stat}</strong><span>${article.statLabel}</span></div>
-      <h3>KEY NOTES</h3>
+      <h4>KEY NOTES</h4>
       <ul class="modal-list">${article.list.map((item, index) => `<li><b>0${index + 1}</b><span>${item}</span></li>`).join('')}</ul>
     </aside>`;
   modal.classList.add('is-open');
