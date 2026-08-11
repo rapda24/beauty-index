@@ -1,5 +1,36 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
+const siteHeader = document.querySelector('.site-header');
+const themeButtons = document.querySelectorAll('.theme-dot');
+
+function setColorTheme(theme) {
+  const selectedTheme = ['violet', 'green', 'coral'].includes(theme) ? theme : 'violet';
+  document.body.dataset.theme = selectedTheme;
+  const logoSources = {
+    violet: 'assets/img/beauty-index-logo.svg',
+    green: 'assets/img/beauty-index-logo-green.svg',
+    coral: 'assets/img/beauty-index-logo-coral.svg'
+  };
+  document.querySelectorAll('.brand-logo').forEach((logo) => { logo.src = logoSources[selectedTheme]; });
+  themeButtons.forEach((button) => {
+    const isActive = button.dataset.theme === selectedTheme;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+  });
+  try { localStorage.setItem('beauty-index-theme', selectedTheme); } catch (error) { /* Storage can be unavailable. */ }
+}
+
+let savedTheme = 'violet';
+try { savedTheme = localStorage.getItem('beauty-index-theme') || 'violet'; } catch (error) { /* Use the default theme. */ }
+setColorTheme(savedTheme);
+themeButtons.forEach((button) => button.addEventListener('click', () => setColorTheme(button.dataset.theme)));
+
+function updateHeaderState() {
+  siteHeader?.classList.toggle('is-scrolled', window.scrollY > 24);
+}
+
+updateHeaderState();
+window.addEventListener('scroll', updateHeaderState, { passive: true });
 
 if (menuToggle && mainNav) {
   menuToggle.addEventListener('click', () => {
@@ -27,6 +58,18 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 }, { threshold: 0.1 });
 
 revealElements.forEach((element) => revealObserver.observe(element));
+
+const chartPanels = document.querySelectorAll('.chart-panel');
+const chartObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting && entry.intersectionRatio >= 0.98) {
+      entry.target.classList.add('chart-ready');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: [0.98, 1] });
+
+chartPanels.forEach((panel) => chartObserver.observe(panel));
 
 function escHtml(value) {
   return String(value == null ? '' : value).replace(/[&<>]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
@@ -57,34 +100,32 @@ const DESK_BRIEFS = {
 
 const chips = document.querySelectorAll('.chip');
 let deskCategory = document.querySelector('.chip.on')?.dataset.cat || Object.keys(DESK_BRIEFS)[0];
+const deskStage = document.querySelector('#deskStage');
+
+function loadDeskBrief(category) {
+  if (!deskStage) return;
+  deskStage.setAttribute('aria-busy', 'true');
+  deskStage.innerHTML = `<div class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span>AI 에디터가 <b>${escHtml(category)}</b> 트렌드를 정리 중…</div>`;
+  window.setTimeout(() => {
+    const data = DESK_BRIEFS[category] || DESK_BRIEFS[Object.keys(DESK_BRIEFS)[0]];
+    deskStage.innerHTML = renderDeskBrief(data);
+    deskStage.setAttribute('aria-busy', 'false');
+  }, 450);
+}
 
 chips.forEach((chip) => {
   chip.addEventListener('click', () => {
     chips.forEach((c) => c.classList.remove('on'));
     chip.classList.add('on');
     deskCategory = chip.dataset.cat;
+    loadDeskBrief(deskCategory);
   });
 });
-
-const runButton = document.querySelector('#run');
-const deskStage = document.querySelector('#deskStage');
 
 function renderDeskBrief(data) {
   const picksHtml = data.picks.map((p) => `<div class="desk-pick"><span class="tag">${escHtml(p.tag)}</span><h3 class="name">${escHtml(p.name)}</h3><span class="reason">${escHtml(p.reason)}</span></div>`).join('');
   const bodyHtml = data.brief.map((paragraph) => `<p>${escHtml(paragraph)}</p>`).join('');
   return `<div class="desk-art"><span class="desk-kicker">${escHtml(data.kicker)}</span><h3>${escHtml(data.headline)}</h3><div class="desk-subhead">${escHtml(data.subhead)}</div>${bodyHtml}<div class="desk-picks-title">이번 주 트렌드 픽</div><div class="desk-picks">${picksHtml}</div></div>`;
-}
-
-if (runButton && deskStage) {
-  runButton.addEventListener('click', () => {
-    runButton.disabled = true;
-    deskStage.innerHTML = `<div class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span>AI 에디터가 <b>${escHtml(deskCategory)}</b> 트렌드를 정리 중…</div>`;
-    window.setTimeout(() => {
-      const data = DESK_BRIEFS[deskCategory] || DESK_BRIEFS[Object.keys(DESK_BRIEFS)[0]];
-      deskStage.innerHTML = renderDeskBrief(data);
-      runButton.disabled = false;
-    }, 700);
-  });
 }
 
 const newsletterForm = document.querySelector('#newsletterForm');

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 66" role="img" aria-label="Beauty Index">
+  <defs><linearGradient id="g" x1="190" y1="15" x2="344" y2="58" gradientUnits="userSpaceOnUse"><stop stop-color="#35A85D"/><stop offset="1" stop-color="#218FA3"/></linearGradient></defs>
+  <text x="5" y="53" fill="#35A85D" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="700" font-style="italic" letter-spacing="-3.2">beauty</text>
+  <text x="188" y="53" fill="url(#g)" font-family="'Avenir Next', Avenir, Arial, sans-serif" font-size="40" font-weight="600" letter-spacing="-1.8">index</text>
+  <path d="M151 60c20 6 43 6 62-1 11-4 22-5 34-3" fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round" opacity=".88"/>
+</svg>
