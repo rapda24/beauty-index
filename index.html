@@ -14,8 +14,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="BEAUTY INDEX 홈">
-        <span class="brand-mark">✦</span>
-        <span>BEAUTY INDEX</span>
+        <img class="brand-logo" src="assets/img/beauty-index-logo.svg" alt="BEAUTY INDEX">
       </a>
 
       <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">
@@ -32,15 +31,24 @@
       </nav>
 
       <div class="header-tools">
-        <a class="header-cta" href="#board">게시판 보기 ↗</a>
+        <a class="header-cta" href="#newsletter">뉴스레터 ↗</a>
       </div>
     </div>
   </header>
 
+  <aside class="theme-switcher" aria-label="사이트 컬러 테마 선택">
+    <span class="theme-switcher-label">COLOR</span>
+    <button class="theme-dot theme-dot-violet is-active" type="button" data-theme="violet" aria-label="바이올렛과 블루 테마" aria-pressed="true"></button>
+    <button class="theme-dot theme-dot-green" type="button" data-theme="green" aria-label="프레시 그린과 아쿠아 테마" aria-pressed="false"></button>
+    <button class="theme-dot theme-dot-coral" type="button" data-theme="coral" aria-label="브라이트 코랄과 크롬 옐로우 테마" aria-pressed="false"></button>
+  </aside>
+
   <main id="top">
     <section class="masthead reveal">
-      <p class="eyebrow"><span>ISSUE 26.08</span> K-BEAUTY COMMUNITY &amp; TREND INTELLIGENCE</p>
-      <h2>지금 뜨는 뷰티를,<br><em>지수로 읽다.</em></h2>
+      <div class="masthead-copy">
+        <p class="eyebrow"><span>ISSUE 26.08</span> K-BEAUTY COMMUNITY &amp; TREND INTELLIGENCE</p>
+        <h2>지금 뜨는 뷰티를,<br><em>지수로 읽다.</em></h2>
+      </div>
     </section>
 
     <section class="trend-hero" id="board">
@@ -48,7 +56,7 @@
         <div class="desk-panel reveal">
           <span class="mini-label">AI TREND DESK · THIS WEEK</span>
           <h3>이번 주 뷰티 트렌드,<br>AI 에디터가 브리핑합니다</h3>
-          <p class="desk-dek">카테고리를 고르고 <b>트렌드 생성</b>을 누르면, 이번 주 트렌드 브리핑과 트렌드 픽 3종을 확인할 수 있습니다.</p>
+          <p class="desk-dek">카테고리를 선택하면 이번 주 트렌드 브리핑과 트렌드 픽 3종을 바로 확인할 수 있습니다.</p>
           <div class="reader">
             <div class="reader-bar">
               <span class="lb">Category</span>
@@ -56,10 +64,9 @@
               <button class="chip" data-cat="메이크업">메이크업</button>
               <button class="chip" data-cat="성분·포뮬러">성분·포뮬러</button>
               <button class="chip on" data-cat="글로벌 K-뷰티">글로벌</button>
-              <button class="run" id="run">트렌드 생성</button>
             </div>
             <div class="stage" id="deskStage">
-              <p class="desk-placeholder">카테고리를 고르고 <b>트렌드 생성</b>을 누르면 이번 주 브리핑과 트렌드 픽 3종을 확인할 수 있습니다.</p>
+              <p class="desk-placeholder">궁금한 카테고리를 선택해 이번 주 브리핑과 트렌드 픽 3종을 확인해 보세요.</p>
             </div>
           </div>
         </div>
@@ -237,9 +244,23 @@
 
         <article class="chart-panel chart-panel-wide">
           <div class="panel-head"><span>03</span><div><h4>미국 ↑ vs 중국 ↓</h4><small>수출 시장의 중심축 이동</small></div><b>46.5 → 14.4</b></div>
-          <div class="compare-rows">
-            <button class="compare-row article-trigger" type="button" data-article="usa"><span>UNITED STATES</span><div><i style="--value:82%"></i></div><strong>+41.5%</strong></button>
-            <button class="compare-row article-trigger" type="button" data-article="china"><span>CHINA</span><div><i class="is-down" style="--value:38%"></i></div><strong>−6.6%</strong></button>
+          <div class="compare-rows market-line-chart" role="img" aria-label="2022년부터 2026년까지 미국은 상승하고 중국은 하락하는 수출 시장 추이">
+            <svg viewBox="0 0 760 250" aria-hidden="true">
+              <g class="line-grid">
+                <line x1="58" y1="30" x2="730" y2="30"></line><line x1="58" y1="82" x2="730" y2="82"></line><line x1="58" y1="134" x2="730" y2="134"></line><line x1="58" y1="186" x2="730" y2="186"></line>
+                <line x1="58" y1="218" x2="730" y2="218"></line>
+              </g>
+              <path class="line-area line-area-us" pathLength="1" d="M58 185 L226 158 L394 124 L562 78 L730 38 L730 218 L58 218 Z"></path>
+              <path class="market-line line-us" pathLength="1" d="M58 185 L226 158 L394 124 L562 78 L730 38"></path>
+              <path class="market-line line-cn" pathLength="1" d="M58 48 L226 75 L394 112 L562 151 L730 188"></path>
+              <g class="line-points line-points-us"><circle cx="58" cy="185" r="5"></circle><circle cx="226" cy="158" r="5"></circle><circle cx="394" cy="124" r="5"></circle><circle cx="562" cy="78" r="5"></circle><circle cx="730" cy="38" r="5"></circle></g>
+              <g class="line-points line-points-cn"><circle cx="58" cy="48" r="5"></circle><circle cx="226" cy="75" r="5"></circle><circle cx="394" cy="112" r="5"></circle><circle cx="562" cy="151" r="5"></circle><circle cx="730" cy="188" r="5"></circle></g>
+              <g class="line-years"><text x="58" y="242">2022</text><text x="226" y="242">2023</text><text x="394" y="242">2024</text><text x="562" y="242">2025</text><text x="730" y="242">2026</text></g>
+            </svg>
+            <div class="line-chart-legend">
+              <button class="line-legend-item article-trigger" type="button" data-article="usa"><i class="legend-line is-us"></i><span>UNITED STATES</span><strong>+41.5%</strong></button>
+              <button class="line-legend-item article-trigger" type="button" data-article="china"><i class="legend-line is-cn"></i><span>CHINA</span><strong>−6.6%</strong></button>
+            </div>
           </div>
           <p class="chart-note">중국 의존도는 과거 46.5%에서 14.4%로 낮아졌고, 미국 시장은 가장 강한 상승 신호를 보이고 있습니다.</p>
         </article>
@@ -250,7 +271,7 @@
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <div class="footer-brand"><span class="brand-mark">✦</span><strong>BEAUTY INDEX</strong></div>
+      <div class="footer-brand"><img class="brand-logo" src="assets/img/beauty-index-logo.svg" alt="BEAUTY INDEX"></div>
       <p>지금 뜨는 뷰티를, 지수로 읽다.</p>
       <div class="footer-links"><a href="#board">Board</a><a href="#trends">Trend</a><a href="#routine">Routine</a><a href="#picks">Picks</a><a href="#about">About</a><a href="#newsletter">Newsletter</a><a href="#market">Data</a></div>
       <small>본 페이지의 수치는 제공된 레퍼런스 사이트의 콘텐츠를 편집해 구성한 데모입니다.</small>
