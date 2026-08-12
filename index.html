@@ -7,14 +7,14 @@
   <title>BEAUTY INDEX — K-Beauty Community & Trend Journal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#top" aria-label="BEAUTY INDEX 홈">
-        <img class="brand-logo" src="assets/img/beauty-index-logo.svg" alt="BEAUTY INDEX">
+        <span class="brand-logo brand-logo-text">BEAUTY INDEX</span>
       </a>
 
       <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav">
@@ -38,16 +38,16 @@
 
   <aside class="theme-switcher" aria-label="사이트 컬러 테마 선택">
     <span class="theme-switcher-label">COLOR</span>
-    <button class="theme-dot theme-dot-violet is-active" type="button" data-theme="violet" aria-label="바이올렛과 블루 테마" aria-pressed="true"></button>
-    <button class="theme-dot theme-dot-green" type="button" data-theme="green" aria-label="프레시 그린과 아쿠아 테마" aria-pressed="false"></button>
-    <button class="theme-dot theme-dot-coral" type="button" data-theme="coral" aria-label="브라이트 코랄과 크롬 옐로우 테마" aria-pressed="false"></button>
+    <button class="theme-dot theme-dot-violet is-active" type="button" data-theme="violet" aria-label="바이올렛과 핑크 테마" aria-pressed="true"></button>
+    <button class="theme-dot theme-dot-green" type="button" data-theme="green" aria-label="민트 그린과 옐로우 테마" aria-pressed="false"></button>
+    <button class="theme-dot theme-dot-coral" type="button" data-theme="coral" aria-label="핑크와 피치 테마" aria-pressed="false"></button>
   </aside>
 
   <main id="top">
     <section class="masthead reveal">
       <div class="masthead-copy">
         <p class="eyebrow"><span>ISSUE 26.08</span> K-BEAUTY COMMUNITY &amp; TREND INTELLIGENCE</p>
-        <h2>지금 뜨는 뷰티를,<br><em>지수로 읽다.</em></h2>
+        <h2>지금 뜨는 <strong>뷰티</strong>를,<br><em><strong>지수</strong>로 읽다.</em></h2>
       </div>
     </section>
 
@@ -191,7 +191,6 @@
 
     <section class="section topic-overview" id="market" data-edition="04 · MARKET DATA APPENDIX">
       <div class="overview-intro reveal">
-        <div class="section-number">06</div>
         <div>
           <span class="mini-label">MARKET DATA · APPENDIX</span>
           <h3>수치로 보는<br>수출 시장</h3>
@@ -217,7 +216,7 @@
 
       <div class="data-grid reveal">
         <article class="chart-panel">
-          <div class="panel-head"><span>01</span><div><h4>5년 수출 추이</h4><small>상반기 기준 · INDEX</small></div><b>+73%</b></div>
+          <div class="panel-head"><div><h4>5년 수출 추이</h4><small>상반기 기준 · INDEX</small></div><b>+73%</b></div>
           <div class="bar-chart" aria-label="5년 수출 추이 막대그래프">
             <div class="bar-column"><i style="--value:58%"></i><span>40.5</span><small>2022</small></div>
             <div class="bar-column"><i style="--value:63%"></i><span>44.1</span><small>2023</small></div>
@@ -229,10 +228,20 @@
         </article>
 
         <article class="chart-panel chart-panel-dark">
-          <div class="panel-head"><span>02</span><div><h4>수출국 점유율</h4><small>2026 상반기</small></div><b>$70B</b></div>
+          <div class="panel-head"><div><h4>수출국 점유율</h4><small>2026 상반기</small></div><b>$70B</b></div>
           <div class="donut-wrap">
-            <div class="donut" role="img" aria-label="미국 20.7%, 중국 14.4%, 일본 8.3%, 기타 56.6%"></div>
-            <div class="donut-center"><strong>43.4%</strong><span>TOP 3</span></div>
+            <div class="donut" role="img" aria-label="미국 20.7%, 중국 14.4%, 일본 8.3%, 상위 3개국 합계 43.4%">
+              <svg class="donut-gauge" viewBox="0 0 240 240" aria-hidden="true">
+                <circle class="gauge-track" cx="120" cy="120" r="94"></circle>
+                <circle class="gauge-progress gauge-us" pathLength="100" cx="120" cy="120" r="94" transform="rotate(-90 120 120)"></circle>
+                <circle class="gauge-track" cx="120" cy="120" r="72"></circle>
+                <circle class="gauge-progress gauge-cn" pathLength="100" cx="120" cy="120" r="72" transform="rotate(-90 120 120)"></circle>
+                <circle class="gauge-track" cx="120" cy="120" r="50"></circle>
+                <circle class="gauge-progress gauge-jp" pathLength="100" cx="120" cy="120" r="50" transform="rotate(-90 120 120)"></circle>
+                <text class="gauge-total" x="120" y="118">43.4%</text>
+                <text class="gauge-caption" x="120" y="137">TOP 3</text>
+              </svg>
+            </div>
           </div>
           <ul class="legend-list">
             <li><span class="legend-dot dot-1"></span><b>미국</b><em>20.7%</em></li>
@@ -243,7 +252,7 @@
         </article>
 
         <article class="chart-panel chart-panel-wide">
-          <div class="panel-head"><span>03</span><div><h4>미국 ↑ vs 중국 ↓</h4><small>수출 시장의 중심축 이동</small></div><b>46.5 → 14.4</b></div>
+          <div class="panel-head"><div><h4>미국 ↑ vs 중국 ↓</h4><small>수출 시장의 중심축 이동</small></div><b>46.5 → 14.4</b></div>
           <div class="compare-rows market-line-chart" role="img" aria-label="2022년부터 2026년까지 미국은 상승하고 중국은 하락하는 수출 시장 추이">
             <svg viewBox="0 0 760 250" aria-hidden="true">
               <g class="line-grid">
@@ -257,6 +266,10 @@
               <g class="line-points line-points-cn"><circle cx="58" cy="48" r="5"></circle><circle cx="226" cy="75" r="5"></circle><circle cx="394" cy="112" r="5"></circle><circle cx="562" cy="151" r="5"></circle><circle cx="730" cy="188" r="5"></circle></g>
               <g class="line-years"><text x="58" y="242">2022</text><text x="226" y="242">2023</text><text x="394" y="242">2024</text><text x="562" y="242">2025</text><text x="730" y="242">2026</text></g>
             </svg>
+            <div class="stock-cursor" aria-hidden="true">
+              <i></i>
+              <span><b class="stock-period">2026</b><em class="stock-us">US 46.5</em><em class="stock-cn">CN 14.4</em></span>
+            </div>
             <div class="line-chart-legend">
               <button class="line-legend-item article-trigger" type="button" data-article="usa"><i class="legend-line is-us"></i><span>UNITED STATES</span><strong>+41.5%</strong></button>
               <button class="line-legend-item article-trigger" type="button" data-article="china"><i class="legend-line is-cn"></i><span>CHINA</span><strong>−6.6%</strong></button>
@@ -271,7 +284,7 @@
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <div class="footer-brand"><img class="brand-logo" src="assets/img/beauty-index-logo.svg" alt="BEAUTY INDEX"></div>
+      <div class="footer-brand"><span class="brand-logo brand-logo-text">BEAUTY INDEX</span></div>
       <p>지금 뜨는 뷰티를, 지수로 읽다.</p>
       <div class="footer-links"><a href="#board">Board</a><a href="#trends">Trend</a><a href="#routine">Routine</a><a href="#picks">Picks</a><a href="#about">About</a><a href="#newsletter">Newsletter</a><a href="#market">Data</a></div>
       <small>본 페이지의 수치는 제공된 레퍼런스 사이트의 콘텐츠를 편집해 구성한 데모입니다.</small>
