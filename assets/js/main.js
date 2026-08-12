@@ -3,6 +3,15 @@ const mainNav = document.querySelector('.main-nav');
 const siteHeader = document.querySelector('.site-header');
 const themeButtons = document.querySelectorAll('.theme-dot');
 
+function updateAnchorOffset() {
+  const headerHeight = siteHeader?.getBoundingClientRect().height || 0;
+  document.documentElement.style.setProperty('--anchor-offset', `${Math.ceil(headerHeight + 10)}px`);
+}
+
+updateAnchorOffset();
+window.addEventListener('load', updateAnchorOffset);
+window.addEventListener('resize', updateAnchorOffset, { passive: true });
+
 function setColorTheme(theme) {
   const selectedTheme = ['violet', 'green', 'coral'].includes(theme) ? theme : 'violet';
   document.body.dataset.theme = selectedTheme;
@@ -62,12 +71,12 @@ revealElements.forEach((element) => revealObserver.observe(element));
 const chartPanels = document.querySelectorAll('.chart-panel');
 const chartObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting && entry.intersectionRatio >= 0.98) {
+    if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
       entry.target.classList.add('chart-ready');
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: [0.98, 1] });
+}, { threshold: [0.55] });
 
 chartPanels.forEach((panel) => chartObserver.observe(panel));
 
@@ -227,3 +236,44 @@ document.querySelectorAll('[data-close-modal]').forEach((button) => button.addEv
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && modal?.classList.contains('is-open')) closeArticle();
 });
+
+const stockChart = document.querySelector('.market-line-chart');
+if (stockChart) {
+  const stockSvg = stockChart.querySelector('svg');
+  const periodLabel = stockChart.querySelector('.stock-period');
+  const usaLabel = stockChart.querySelector('.stock-us');
+  const chinaLabel = stockChart.querySelector('.stock-cn');
+  const usaValues = [5.0, 12.2, 22.8, 33.4, 46.5];
+  const chinaValues = [46.5, 38.7, 29.4, 21.0, 14.4];
+
+  const interpolate = (values, position) => {
+    const scaled = position * (values.length - 1);
+    const index = Math.min(Math.floor(scaled), values.length - 2);
+    const ratio = scaled - index;
+    return values[index] + (values[index + 1] - values[index]) * ratio;
+  };
+
+  stockChart.addEventListener('pointermove', (event) => {
+    if (!stockSvg) return;
+    const chartRect = stockChart.getBoundingClientRect();
+    const svgRect = stockSvg.getBoundingClientRect();
+    const plotLeft = svgRect.left + svgRect.width * (58 / 760);
+    const plotRight = svgRect.left + svgRect.width * (730 / 760);
+    const pointerX = Math.max(plotLeft, Math.min(event.clientX, plotRight));
+    const position = (pointerX - plotLeft) / (plotRight - plotLeft);
+    const yearValue = 2022 + position * 4;
+    const year = Math.min(2026, Math.floor(yearValue));
+    const quarter = Math.min(4, Math.floor((yearValue - year) * 4) + 1);
+
+    stockChart.style.setProperty('--cursor-x', `${pointerX - chartRect.left}px`);
+    stockChart.style.setProperty('--cursor-top', `${svgRect.top - chartRect.top + svgRect.height * (30 / 250)}px`);
+    stockChart.style.setProperty('--cursor-height', `${svgRect.height * (188 / 250)}px`);
+    periodLabel.textContent = year >= 2026 ? '2026' : `${year} Q${quarter}`;
+    usaLabel.textContent = `US ${interpolate(usaValues, position).toFixed(1)}`;
+    chinaLabel.textContent = `CN ${interpolate(chinaValues, position).toFixed(1)}`;
+    stockChart.classList.toggle('cursor-left', position > .78);
+    stockChart.classList.add('is-tracking');
+  });
+
+  stockChart.addEventListener('pointerleave', () => stockChart.classList.remove('is-tracking'));
+}
